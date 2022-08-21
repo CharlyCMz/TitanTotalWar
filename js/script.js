@@ -1,13 +1,24 @@
+//Global Variables
+let playerAttack;
+let aiAttack;
 
 //General game interactions with buttons deployment
 function elementalTotalWar() {
     //Catchers for the buttons interactions
     let playerButton=document.getElementById("PlayerButton");
     let elementalButton=document.getElementById("ElementalButton");
-
+    let attackQ=document.getElementById("AttackQ");
+    let attackW=document.getElementById("AttackW");
+    let attackE=document.getElementById("AttackE");
+    let attackR=document.getElementById("AttackR");
+    
     //Button actions
     playerButton.addEventListener("click",playerInfo);
     elementalButton.addEventListener("click",elementalSelection);
+    attackQ.addEventListener("click",selectedAttackQ);
+    attackW.addEventListener("click",selectedAttackW);
+    attackE.addEventListener("click",selectedAttackE);
+    attackR.addEventListener("click",selectedAttackR);
 }
 
 //Mechanism to get the Player Name triggered by the button
@@ -74,6 +85,40 @@ function randomChoice(min,max) {
     return random;
 }
 
+//Declaration of the Player Attacks
+function selectedAttackQ() {
+    playerAttack="Tackle";
+    aiRandomAttack();
+}
+function selectedAttackW() {
+    playerAttack="Headbut";
+    aiRandomAttack();
+}
+function selectedAttackE() {
+    playerAttack="Elemental Absortion";
+    aiRandomAttack();
+}
+function selectedAttackR() {
+    playerAttack="Elemental Rage";
+    aiRandomAttack();
+}
+
+//Random selection of the AI attack
+function aiRandomAttack() {
+    //Obtain a random number to target an attack
+    let randomMultiplier=randomChoice(0,4);
+    //Identify the number with the corresponding attack
+    if (randomMultiplier==1) {
+        aiAttack="Tackle";
+    } else if (randomMultiplier==2) {
+        aiAttack="Headbut";
+    } else if (randomMultiplier==3) {
+        aiAttack="Elemental Absortion";
+    } else {
+        aiAttack="Elemental Rage";
+    }
+    
+}
 
 //On load script execution
 window.addEventListener("load",elementalTotalWar)
