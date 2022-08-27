@@ -236,6 +236,9 @@ function duelClosureMsn(duelResult) {
     attackW.disabled=true;
     attackE.disabled=true;
     attackR.disabled=true;
+    //Show the reset game button
+    let newBattle=document.getElementById("newBattle");
+    newBattle.style.display="block";
 }
 
 function gameReset() {
