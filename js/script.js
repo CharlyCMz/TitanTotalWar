@@ -158,7 +158,7 @@ function elementalDuel() {
         break;
         case "Elemental Absortion":
             aiHitPoints+=35; //Hit points restored to the AI companion.
-            spanPlayerHP.innerHTML=playerHitPoints;
+            spanPlayerHP.innerHTML=aiHitPoints;
         break;
         case "Elemental Rage":
             playerHitPoints-=50; //Damage dealed to the player companion
@@ -192,6 +192,16 @@ function duelClosureMsn(duelResult) {
     let log=document.createElement("p",);
     log.innerHTML="End of the Battle!! ... This is a "+duelResult+" for you!!";
     battleClosure.appendChild(log);
+    //Call for the attacking buttons to add the disable attribute
+    let attackQ=document.getElementById("AttackQ");
+    let attackW=document.getElementById("AttackW");
+    let attackE=document.getElementById("AttackE");
+    let attackR=document.getElementById("AttackR");
+    //Adding of Disable TRUE
+    attackQ.disabled=true;
+    attackW.disabled=true;
+    attackE.disabled=true;
+    attackR.disabled=true;
 }
 
 function gameReset() {
