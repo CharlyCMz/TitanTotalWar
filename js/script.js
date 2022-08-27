@@ -117,7 +117,15 @@ function aiRandomAttack() {
     } else {
         aiAttack="Elemental Rage";
     }
-    
+    //Function calling for battle log creation
+    createBattleLog();
+}
+
+function createBattleLog() {
+    let battleLog=document.getElementById("Results");
+    let log=document.createElement("p",);
+    log.innerHTML="Your companion used "+playerAttack+" to attack, The foe responds with "+aiAttack+".";
+    battleLog.appendChild(log);
 }
 
 //On load script execution
