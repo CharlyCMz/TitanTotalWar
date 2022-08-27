@@ -64,22 +64,33 @@ function elementalSelection() {
     let playerElemental=document.getElementById("playerElementalName");
     //Evaluation of the player selection
     if (earthElemental) {
-        alert("You have choose Earth Elemental");
+        
         playerElemental.innerHTML="Earth Elemental";
     } else if (fireElemental) {
-        alert("You have choose Fire Elemental");
+        
         playerElemental.innerHTML="Fire Elemental";
     } else if (waterElemental) {
-        alert("You have choose Water Elemental");
+        
         playerElemental.innerHTML="Water Elemental";
     } else if (windElemental) {
-        alert("You have choose Wind Elemental");
+        
         playerElemental.innerHTML="Wind Elemental";
     } else {
         alert("You haven't choose")
     }
     //Calling for the AI random selection 
     aiElementalSelection();
+    //Control of the section visibility. Hide the current section and show the next step. The Battle
+    let elementalsSection=document.getElementById("Elementals");
+    elementalsSection.style.display="none"
+    let duelSection=document.getElementById("DuelInfo");
+    let attackSection=document.getElementById("Attacks");
+    let resultSection=document.getElementById("Results");
+    let closureSection=document.getElementById("duelClosure");
+    duelSection.style.display="block"
+    attackSection.style.display="block"
+    resultSection.style.display="block"
+    closureSection.style.display="block"
 }
 
 //This mechanism randoms the AI choise for the Elemental Options
@@ -187,11 +198,11 @@ function elementalDuel() {
             spanPlayerHP.innerHTML=playerHitPoints
         break;
     }
-    console.log("AI HitPoints: "+aiHitPoints,"\n","Player HitPoints: "+playerHitPoints);
+    //Insertion of battle text
     createBattleLog();
-
     //Check the remaining hit points
     hitPointsCheck()
+    console.log("Player HitPoints: "+playerHitPoints,"\n","AI HitPoints: "+aiHitPoints);
 }
 
 function createBattleLog() {
