@@ -1,6 +1,8 @@
 //Global Variables
 let playerAttack;
 let aiAttack;
+let playerHitPoints=300;
+let aiHitPoints=300;
 
 //General game interactions with buttons deployment
 function elementalTotalWar() {
@@ -118,6 +120,50 @@ function aiRandomAttack() {
         aiAttack="Elemental Rage";
     }
     //Function calling for battle log creation
+    elementalDuel();
+}
+
+function elementalDuel() {
+    let spanPlayerHP=document.getElementById("hitPointsP");
+    let spanAIHP=document.getElementById("hitPointsAI");
+    //Switch cases for damage calculation and hit point restoration for Player Actions
+    switch (playerAttack) {
+        case "Tackle":
+            aiHitPoints-=20; //Damage dealed to the foe
+            spanAIHP.innerHTML=aiHitPoints;
+        break;
+        case "Headbut":
+            aiHitPoints-=30; //Damage dealed to the foe
+        break;
+        case "Elemental Absortion":
+            playerHitPoints+=35; //Hit points restored to the ally.
+            spanPlayerHP.innerHTML=playerHitPoints;
+        break;
+        case "Elemental Rage":
+            aiHitPoints-=50; //Damage dealed to the foe
+            spanAIHP.innerHTML=aiHitPoints;
+        break;
+    }
+    //Switch cases for damage calculation and hit point restoration for AI Actions
+    switch (aiAttack) {
+        case "Tackle":
+            playerHitPoints-=20; //Damage dealed to the player companion
+            spanPlayerHP.innerHTML=playerHitPoints
+        break;
+        case "Headbut":
+            playerHitPoints-=30; //Damage dealed to the player companion
+            spanPlayerHP.innerHTML=playerHitPoints
+        break;
+        case "Elemental Absortion":
+            aiHitPoints+=35; //Hit points restored to the AI companion.
+            spanPlayerHP.innerHTML=playerHitPoints;
+        break;
+        case "Elemental Rage":
+            playerHitPoints-=50; //Damage dealed to the player companion
+            spanPlayerHP.innerHTML=playerHitPoints
+        break;
+    }
+    console.log("AI HitPoints: "+aiHitPoints,"\n","Player HitPoints: "+playerHitPoints);
     createBattleLog();
 }
 
