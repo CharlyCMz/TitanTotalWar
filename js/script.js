@@ -169,6 +169,7 @@ function elementalDuel() {
         break;
         case "Headbut":
             aiHitPoints-=30; //Damage dealed to the foe
+            spanAIHP.innerHTML=aiHitPoints;
         break;
         case "Elemental Absortion":
             playerHitPoints+=35; //Hit points restored to the ally.
