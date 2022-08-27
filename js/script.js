@@ -6,7 +6,13 @@ let aiHitPoints=300;
 
 //General game interactions with buttons deployment
 function elementalTotalWar() {
-    //Catchers for the buttons interactions
+    //Catchers for the buttons interactions and section managements
+    let elementalsSection=document.getElementById("Elementals");
+    let duelSection=document.getElementById("DuelInfo");
+    let attackSection=document.getElementById("Attacks");
+    let resultSection=document.getElementById("Results");
+    let closureSection=document.getElementById("duelClosure");
+    let resetSection=document.getElementById("newBattle");
     let playerButton=document.getElementById("PlayerButton");
     let elementalButton=document.getElementById("ElementalButton");
     let attackQ=document.getElementById("AttackQ");
@@ -23,13 +29,29 @@ function elementalTotalWar() {
     attackE.addEventListener("click",selectedAttackE);
     attackR.addEventListener("click",selectedAttackR);
     resetButton.addEventListener("click",gameReset);
+
+    //Sections visibility config
+    elementalsSection.style.display="none"
+    duelSection.style.display="none"
+    attackSection.style.display="none"
+    resultSection.style.display="none"
+    closureSection.style.display="none"
+    resetSection.style.display="none"
 }
 
 //Mechanism to get the Player Name triggered by the button
 function playerInfo() {
+    //Catching of player name
     let playerName=document.getElementById("nameInput").value;
-    alert("Elemental Master Name Selected!!");
-    return playerName;
+    //Catching of the HTML element to put the player name on Screen
+    let nameSpan=document.getElementById("masterName");
+    nameSpan.innerHTML=playerName;
+    //Hide the name selection section
+    let playerInfoSection=document.getElementById("PlayerInfo");
+    playerInfoSection.style.display="none"
+    //Changing the display options of the next section
+    let elementalsSection=document.getElementById("Elementals");
+    elementalsSection.style.display="block"
 }
 
 //Mechanism to get the elemental selection triggered by the player on the "Elementals Section"
