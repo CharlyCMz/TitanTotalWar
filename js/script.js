@@ -13,6 +13,7 @@ function elementalTotalWar() {
     let attackW=document.getElementById("AttackW");
     let attackE=document.getElementById("AttackE");
     let attackR=document.getElementById("AttackR");
+    let resetButton=document.getElementById("gameReset");
     
     //Button actions
     playerButton.addEventListener("click",playerInfo);
@@ -21,6 +22,7 @@ function elementalTotalWar() {
     attackW.addEventListener("click",selectedAttackW);
     attackE.addEventListener("click",selectedAttackE);
     attackR.addEventListener("click",selectedAttackR);
+    resetButton.addEventListener("click",gameReset);
 }
 
 //Mechanism to get the Player Name triggered by the button
@@ -165,6 +167,9 @@ function elementalDuel() {
     }
     console.log("AI HitPoints: "+aiHitPoints,"\n","Player HitPoints: "+playerHitPoints);
     createBattleLog();
+
+    //Check the remaining hit points
+    hitPointsCheck()
 }
 
 function createBattleLog() {
@@ -172,6 +177,25 @@ function createBattleLog() {
     let log=document.createElement("p",);
     log.innerHTML="Your companion used "+playerAttack+" to attack, The foe responds with "+aiAttack+".";
     battleLog.appendChild(log);
+}
+
+function hitPointsCheck() {
+    if (playerHitPoints<=0) {
+        duelClosureMsn("Defeat");
+    } else if (aiHitPoints<=0) {
+        duelClosureMsn("Victory");
+    }
+}
+
+function duelClosureMsn(duelResult) {
+    let battleClosure=document.getElementById("duelClosure");
+    let log=document.createElement("p",);
+    log.innerHTML="End of the Battle!! ... This is a "+duelResult+" for you!!";
+    battleClosure.appendChild(log);
+}
+
+function gameReset() {
+    location.reload();
 }
 
 //On load script execution
