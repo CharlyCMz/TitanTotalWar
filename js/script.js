@@ -61,19 +61,21 @@ function elementalSelection() {
     let fireElemental=document.getElementById("FireElemental").checked;
     let waterElemental=document.getElementById("WaterElemental").checked;
     let windElemental=document.getElementById("WindElemental").checked;
+    //Obtaining the HTML elements to insert the info of Player Companion
     let playerElemental=document.getElementById("playerElementalName");
+    let playerElementalImg=document.getElementById("playerElementalImg");
     //Evaluation of the player selection
     if (earthElemental) {
-        
+        playerElementalImg.src="../img/EarthElemental-removebg-preview.png";
         playerElemental.innerHTML="Earth Elemental";
     } else if (fireElemental) {
-        
+        playerElementalImg.src="../img/FireElemental-removebg-preview.png";
         playerElemental.innerHTML="Fire Elemental";
     } else if (waterElemental) {
-        
+        playerElementalImg.src="../img/WaterElemental-removebg-preview.png";
         playerElemental.innerHTML="Water Elemental";
     } else if (windElemental) {
-        
+        playerElementalImg.src="../img/WindElemental-removebg-preview.png";
         playerElemental.innerHTML="Wind Elemental";
     } else {
         alert("You haven't choose")
@@ -99,18 +101,23 @@ function aiElementalSelection() {
     let randomMultiplier=randomChoice(0,4);
     //Obtain the span tag for the AI companion HTML Insertion
     let aiElemental=document.getElementById("aiElementalName");
+    let aiElementalImg=document.getElementById("aiElementalImg");
     //Structure for numerical selection of each elemental
     if (randomMultiplier==1) {
         // Earth Elemental
+        aiElementalImg.src="../img/EarthElemental-removebg-preview.png";
         aiElemental.innerHTML="Earth Elemental";
     } else if (randomMultiplier==2) {
         // Fire Elemental
+        aiElementalImg.src="../img/FireElemental-removebg-preview.png";
         aiElemental.innerHTML="Fire Elemental";
     } else if (randomMultiplier==3) {
         // Water Elemental
+        aiElementalImg.src="../img/WaterElemental-removebg-preview.png";
         aiElemental.innerHTML="Water Elemental";
     } else {
         // Wind Elemental
+        aiElementalImg.src="../img/WindElemental-removebg-preview.png";
         aiElemental.innerHTML="Wind Elemental";
     }
 }
@@ -214,9 +221,13 @@ function createBattleLog() {
 }
 
 function hitPointsCheck() {
+    let spanPlayerHP=document.getElementById("hitPointsP");
+    let spanAIHP=document.getElementById("hitPointsAI");
     if (playerHitPoints<=0) {
+        spanPlayerHP.innerHTML=0;
         duelClosureMsn("Defeat");
     } else if (aiHitPoints<=0) {
+        spanAIHP.innerHTML=0;
         duelClosureMsn("Victory");
     }
 }
