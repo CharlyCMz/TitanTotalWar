@@ -103,6 +103,10 @@ button {
     display: none;
 }
 
+#Elementals input:checked + label {
+    background-color: #ECB365;
+}
+
 #Elementals img {
     width: 100px;
     height: 100px;
@@ -214,4 +218,22 @@ button {
     color: white;
     padding: 15px;
     text-align: center;
+}
+
+@media (max-width: 360px) {
+    body {
+        text-align: center;
+    }
+    
+    #Elementals div {
+        flex-direction: column;
+    }
+
+    #Attacks div {
+        flex-direction: column;
+    }
+
+    .vsCards {
+        flex-direction: column;
+    }
 }
