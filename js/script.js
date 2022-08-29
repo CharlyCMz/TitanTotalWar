@@ -51,7 +51,7 @@ function playerInfo() {
     playerInfoSection.style.display="none"
     //Changing the display options of the next section
     let elementalsSection=document.getElementById("Elementals");
-    elementalsSection.style.display="block"
+    elementalsSection.style.display="flex"
 }
 
 //Mechanism to get the elemental selection triggered by the player on the "Elementals Section"
