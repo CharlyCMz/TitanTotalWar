@@ -87,10 +87,10 @@ function elementalSelection() {
     let attackSection=document.getElementById("Attacks");
     let resultSection=document.getElementById("Results");
     let closureSection=document.getElementById("duelClosure");
-    duelSection.style.display="block"
-    attackSection.style.display="block"
-    resultSection.style.display="block"
-    closureSection.style.display="block"
+    duelSection.style.display="flex"
+    attackSection.style.display="flex"
+    resultSection.style.display="flex"
+    closureSection.style.display="flex"
 }
 
 //This mechanism randoms the AI choise for the Elemental Options
@@ -192,7 +192,7 @@ function elementalDuel() {
         break;
         case "Elemental Absortion":
             aiHitPoints+=35; //Hit points restored to the AI companion.
-            spanPlayerHP.innerHTML=aiHitPoints;
+            spanAIHP.innerHTML=aiHitPoints;
         break;
         case "Elemental Rage":
             playerHitPoints-=50; //Damage dealed to the player companion
@@ -207,7 +207,7 @@ function elementalDuel() {
 }
 
 function createBattleLog() {
-    let battleLog=document.getElementById("Results");
+    let battleLog=document.getElementById("battleLogText");
     let log=document.createElement("p",);
     log.innerHTML="Your companion used "+playerAttack+" to attack, The foe responds with "+aiAttack+".";
     battleLog.appendChild(log);

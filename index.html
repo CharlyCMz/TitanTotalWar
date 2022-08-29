@@ -43,9 +43,24 @@
         <button id="ElementalButton">Choose</button>
     </section>
     <section id="DuelInfo">
-        <h3>Elemental Duel</h3>
-        <p>Your <span id="playerElementalName"> elemental </span> companion has <span id="hitPointsP">300</span> Hit Points</p>
-        <p>Enemy <span id="aiElementalName"> elemental </span> companion has <span id="hitPointsAI">300</span> Hit Points</p>
+        <h3>- Elemental Duel -</h3>
+        <div>
+            <div class="DuelCard">
+                <div><span id="playerElementalName"></span></div>
+                <div>
+                    <img src="./img/EarthElemental-removebg-preview.png" alt="Player Companion">
+                    <p id="playerHPText"><span id="hitPointsP">300</span> Hit Points</p>
+                </div>
+            </div>
+
+            <div class="DuelCard">
+                <div><span id="aiElementalName"></span></div>
+                <div>
+                    <img src="./img/FireElemental-removebg-preview.png" alt=""> 
+                    <p id="aiHPText"><span id="hitPointsAI">300</span> Hit Points</p>
+                </div> 
+            </div>
+        </div>
     </section>
     <section id="Attacks">
         <h3>Choose Your Attack!!</h3>
@@ -61,9 +76,13 @@
     </section>
     <section id="duelClosure">
 
-    </section> 
+    </section>
+     
     <section id="Results">
-        <h4>Battle Log</h4>
+        <h4>- Battle Log -</h4>
+        <div id="battleLogText">
+
+        </div>
     </section>
     
 </body>
