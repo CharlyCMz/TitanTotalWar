@@ -223,12 +223,16 @@ function createBattleLog() {
 function hitPointsCheck() {
     let spanPlayerHP=document.getElementById("hitPointsP");
     let spanAIHP=document.getElementById("hitPointsAI");
-    if (playerHitPoints<=0) {
+    if (playerHitPoints<=0 && aiHitPoints>0) {
         spanPlayerHP.innerHTML=0;
         duelClosureMsn("Defeat");
-    } else if (aiHitPoints<=0) {
+    } else if (aiHitPoints<=0 && playerHitPoints>0) {
         spanAIHP.innerHTML=0;
         duelClosureMsn("Victory");
+    } else if (playerHitPoints<=0 && aiHitPoints<=0) {
+        spanPlayerHP.innerHTML=0;
+        spanAIHP.innerHTML=0;
+        duelClosureMsn("Draw for AI and");
     }
 }
 
