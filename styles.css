@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+body {
+    background-color: #041C32;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#Header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Header h1 {
+    color: white;
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 50px;
+    margin:30px 0px 0px 0px;
+}
+#Header h2 {
+    color: white;
+    font-family: 'Rubik Distressed', cursive;
+    font-size: 25px;
+    margin:0px;
+}
+
+#PlayerInfo {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto Slab', serif;
+}
+
+#PlayerInfo div {
+    display: flex;
+    flex-direction: column;
+}
+
+#PlayerInfo div input {
+    background-color: black;
+}
+
+button {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 16px;
+    background-color:#ECB365;
+    margin: 15px;
+    height: 35px;
+    width: 200px;
+    border-radius: 20px;
+    padding: 4px;
+    border: 2px solid white;
+    color: white;
+}
