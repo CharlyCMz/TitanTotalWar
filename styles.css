@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
 body {
     color: white;
-    background-color: #041C32;
+    background-color: #041c32;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: 'Roboto Slab', serif;
+    font-family: "Roboto Slab", serif;
+    margin: 0;
 }
 
 #Header {
@@ -21,16 +22,16 @@ body {
 
 h1 {
     color: white;
-    font-family: 'Uncial Antiqua', cursive;
+    font-family: "Uncial Antiqua", cursive;
     font-size: 50px;
-    margin:30px 0px 0px 0px;
+    margin: 30px 0px 0px 0px;
 }
 
 h2 {
     color: white;
-    font-family: 'Rubik Distressed', cursive;
+    font-family: "Rubik Distressed", cursive;
     font-size: 25px;
-    margin:0px;
+    margin: 0px;
 }
 
 #PlayerInfo {
@@ -40,7 +41,7 @@ h2 {
     justify-content: center;
     color: white;
     font-size: 20px;
-    font-family: 'Roboto Slab', serif;
+    font-family: "Roboto Slab", serif;
 }
 
 #PlayerInfo div {
@@ -54,9 +55,9 @@ h2 {
 }
 
 button {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     font-size: 16px;
-    background-color:#cd8b2e;
+    background-color: #cd8b2e;
     margin: 15px;
     height: 35px;
     width: 200px;
@@ -73,7 +74,7 @@ button {
     justify-content: center;
     color: white;
     font-size: 20px;
-    font-family: 'Roboto Slab', serif;
+    font-family: "Roboto Slab", serif;
 }
 
 #Elementals div {
@@ -104,7 +105,7 @@ button {
 }
 
 #Elementals input:checked + label {
-    background-color: #ECB365;
+    background-color: #ecb365;
 }
 
 #Elementals img {
@@ -130,7 +131,7 @@ button {
 #DuelInfo {
     flex-direction: column;
     align-items: center;
-    font-family: 'Rubik Distressed', cursive;
+    font-family: "Rubik Distressed", cursive;
     font-size: 20px;
 }
 
@@ -151,23 +152,21 @@ button {
     margin: 15px;
     padding: 10px;
     width: 250px;
-    font-family: 'Roboto Slab', serif;
+    font-family: "Roboto Slab", serif;
     color: white;
     font-size: 12px;
 }
 
 #playerElementalName {
     color: white;
-    font-family: 'Rubik Distressed', cursive;
+    font-family: "Rubik Distressed", cursive;
     font-size: 20px;
-
 }
 
 #aiElementalName {
     color: white;
-    font-family: 'Rubik Distressed', cursive;
+    font-family: "Rubik Distressed", cursive;
     font-size: 20px;
-
 }
 
 .DuelCard img {
@@ -206,14 +205,14 @@ button {
     flex-direction: column;
     align-items: center;
     color: white;
-    font-family: 'Rubik Distressed', cursive;
+    font-family: "Rubik Distressed", cursive;
     font-size: 20px;
 }
 
 #battleLogText {
-    background-color:#04293A ;
+    background-color: #04293a;
     border-radius: 15px;
-    font-family: 'Roboto Slab', serif;
+    font-family: "Roboto Slab", serif;
     font-size: 15px;
     color: white;
     padding: 15px;
@@ -224,7 +223,7 @@ button {
     body {
         text-align: center;
     }
-    
+
     #Elementals div {
         flex-direction: column;
     }
