@@ -12,9 +12,17 @@ let attackW             =   document.getElementById("AttackW");
 let attackE             =   document.getElementById("AttackE");
 let attackR             =   document.getElementById("AttackR");
 let resetButton         =   document.getElementById("gameReset");
-let playerName          =   document.getElementById("nameInput").value;
 let nameSpan            =   document.getElementById("masterName");
-let playerInfoSection   =   document.getElementById("PlayerInfo");   
+let playerInfoSection   =   document.getElementById("PlayerInfo");
+let playerElemental     =   document.getElementById("playerElementalName");
+let playerElementalImg  =   document.getElementById("playerElementalImg");
+let aiElemental         =   document.getElementById("aiElementalName");
+let aiElementalImg      =   document.getElementById("aiElementalImg");
+let spanPlayerHP        =   document.getElementById("hitPointsP");
+let spanAIHP            =   document.getElementById("hitPointsAI");
+let battleLog           =   document.getElementById("battleLogText");
+let battleClosure       =   document.getElementById("duelClosure");
+let newBattle           =   document.getElementById("newBattle");
 
 //Global Variables
 let playerAttack;
@@ -44,12 +52,10 @@ function elementalTotalWar() {
 
 //Mechanism to get the Player Name triggered by the button
 function playerInfo() {
-    nameSpan.innerHTML=playerName;
-    //Hide the name selection section
-    playerInfoSection.style.display="none"
-    //Changing the display options of the next section
-    let elementalsSection=document.getElementById("Elementals");
-    elementalsSection.style.display="flex"
+    let playerName=document.getElementById("nameInput").value;  //Gets the value of the text-box at click event
+    nameSpan.innerHTML=playerName;                              //Inserts the player name on the HTML structure
+    playerInfoSection.style.display="none"                      //Hide the name selection section
+    elementalsSection.style.display="flex"                      //Changing the display options of the next section
 }
 
 //Mechanism to get the elemental selection triggered by the player on the "Elementals Section"
@@ -59,9 +65,6 @@ function elementalSelection() {
     let fireElemental=document.getElementById("FireElemental").checked;
     let waterElemental=document.getElementById("WaterElemental").checked;
     let windElemental=document.getElementById("WindElemental").checked;
-    //Obtaining the HTML elements to insert the info of Player Companion
-    let playerElemental=document.getElementById("playerElementalName");
-    let playerElementalImg=document.getElementById("playerElementalImg");
     //Evaluation of the player selection
     if (earthElemental) {
         playerElementalImg.src="../img/EarthElemental-removebg-preview.png";
@@ -78,15 +81,11 @@ function elementalSelection() {
     } else {
         alert("You haven't choose")
     }
-    //Calling for the AI random selection 
-    aiElementalSelection();
-    //Control of the section visibility. Hide the current section and show the next step. The Battle
-    let elementalsSection=document.getElementById("Elementals");
+    
+    aiElementalSelection();                                     //Calling for the AI random selection
+    
+    //Control of the section visibility. Hide the current section and show the next step The Battle
     elementalsSection.style.display="none"
-    let duelSection=document.getElementById("DuelInfo");
-    let attackSection=document.getElementById("Attacks");
-    let resultSection=document.getElementById("Results");
-    let closureSection=document.getElementById("duelClosure");
     duelSection.style.display="flex"
     attackSection.style.display="flex"
     resultSection.style.display="flex"
@@ -95,11 +94,7 @@ function elementalSelection() {
 
 //This mechanism randoms the AI choise for the Elemental Options
 function aiElementalSelection() {
-    //Obtain a random number to target an elemental
-    let randomMultiplier=randomChoice(0,4);
-    //Obtain the span tag for the AI companion HTML Insertion
-    let aiElemental=document.getElementById("aiElementalName");
-    let aiElementalImg=document.getElementById("aiElementalImg");
+    let randomMultiplier=randomChoice(0,4);                     //Obtain a random number to target an elemental
     //Structure for numerical selection of each elemental
     if (randomMultiplier==1) {
         // Earth Elemental
@@ -164,8 +159,6 @@ function aiRandomAttack() {
 }
 
 function elementalDuel() {
-    let spanPlayerHP=document.getElementById("hitPointsP");
-    let spanAIHP=document.getElementById("hitPointsAI");
     //Switch cases for damage calculation and hit point restoration for Player Actions
     switch (playerAttack) {
         case "Tackle":
@@ -208,50 +201,42 @@ function elementalDuel() {
     createBattleLog();
     //Check the remaining hit points
     hitPointsCheck()
+    //Tool to evaluate the correct implementation of damage and healing done in the Battle
     console.log("Player HitPoints: "+playerHitPoints,"\n","AI HitPoints: "+aiHitPoints);
 }
 
 function createBattleLog() {
-    let battleLog=document.getElementById("battleLogText");
-    let log=document.createElement("p",);
-    log.innerHTML="Your companion used "+playerAttack+" to attack, The foe responds with "+aiAttack+".";
-    battleLog.appendChild(log);
+    let log=document.createElement("p");                   // Creation of P items to intert on the Battle Log Section
+    log.innerHTML="Your companion used "+playerAttack+" to attack, The foe responds with "+aiAttack+"."; //HTML Values
+    battleLog.appendChild(log);                            //DOM insertion, a new one on each action
 }
 
+//Evaluation of HP of the player and the AI to set the winner
 function hitPointsCheck() {
-    let spanPlayerHP=document.getElementById("hitPointsP");
-    let spanAIHP=document.getElementById("hitPointsAI");
-    if (playerHitPoints<=0 && aiHitPoints>0) {
-        spanPlayerHP.innerHTML=0;
+    if (playerHitPoints<=0 && aiHitPoints>0) {              //Player defeat while foe still alive
+        spanPlayerHP.innerHTML=0;                           //Sets the Player HP to Zero even if the damage takes the number to negative
         duelClosureMsn("Defeat");
-    } else if (aiHitPoints<=0 && playerHitPoints>0) {
-        spanAIHP.innerHTML=0;
+    } else if (aiHitPoints<=0 && playerHitPoints>0) {       //Player Victory while its own HPs are still up from Zero
+        spanAIHP.innerHTML=0;                               //Sets the AI HP to Zero even if the damage takes the number to negative
         duelClosureMsn("Victory");
-    } else if (playerHitPoints<=0 && aiHitPoints<=0) {
-        spanPlayerHP.innerHTML=0;
-        spanAIHP.innerHTML=0;
+    } else if (playerHitPoints<=0 && aiHitPoints<=0) {      //Draw is set when the las exchange of blows takes them below Zero HP
+        spanPlayerHP.innerHTML=0;                           //Sets the Player HP to Zero even if the damage takes the number to negative 
+        spanAIHP.innerHTML=0;                               //Sets the AI HP to Zero even if the damage takes the number to negative
         duelClosureMsn("Draw for AI and");
     }
 }
 
 function duelClosureMsn(duelResult) {
-    let battleClosure=document.getElementById("duelClosure");
     let log=document.createElement("p",);
     log.innerHTML="End of the Battle!! ... This is a "+duelResult+" for you!!";
     battleClosure.appendChild(log);
-    //Call for the attacking buttons to add the disable attribute
-    let attackQ=document.getElementById("AttackQ");
-    let attackW=document.getElementById("AttackW");
-    let attackE=document.getElementById("AttackE");
-    let attackR=document.getElementById("AttackR");
-    //Adding of Disable TRUE
+    //Adding of Disable TRUE to stop the attacking options
     attackQ.disabled=true;
     attackW.disabled=true;
     attackE.disabled=true;
     attackR.disabled=true;
-    //Show the reset game button
-    let newBattle=document.getElementById("newBattle");
-    newBattle.style.display="block";
+
+    newBattle.style.display="block"; //Show the reset game button
 }
 
 function gameReset() {
