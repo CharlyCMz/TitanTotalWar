@@ -30,6 +30,28 @@ let aiAttack;
 let playerHitPoints=300;
 let aiHitPoints=300;
 
+//Establish a Class for the Elementals creation and further storage
+class Elementals {
+    constructor (name,element,hitPoints,damage,defense,attacks,portrait){
+        this.name=name;
+        this.element=element;
+        this.hitPoints=hitPoints;
+        this.damage=damage;
+        this.defense=defense;
+        this.attacks=attacks;
+        this.portrait=portrait;
+    }
+}
+
+//Creation of Playable Elementals
+let therazane= new Elementals("Therazane","Earth",2000,15,30,{},"../img/EarthElemental-removebg-preview.png");
+let ragnaros= new Elementals("Ragnaros","Fire",1800,20,20,{},"../img/FireElemental-removebg-preview.png");
+let neptulon= new Elementals("Neptulon","Water",1800,15,25,{},"../img/WaterElemental-removebg-preview.png");
+let anshal= new Elementals("Anshal","Wind",1500,30,15,{},"../img/WindElemental-removebg-preview.png");
+//Elementals Storage on an Array
+let elementals=[];
+elementals.push(therazane,ragnaros,neptulon,anshal);
+
 //General game interactions with buttons deployment
 function elementalTotalWar() {
     //Button actions
